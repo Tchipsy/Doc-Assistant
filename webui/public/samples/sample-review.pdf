@@ -1,0 +1,45 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 935 >>
+stream
+BT /F1 18 Tf 60 800 Td (Architecture Review Notes - No.14) Tj ET
+BT /F1 11 Tf 60 770 Td (Time: 2026-08-28 14:00 - 16:30) Tj ET
+BT /F1 11 Tf 60 751 Td (Attendees: Li, Wang, Zhao, Chen, Liu, Sun) Tj ET
+BT /F1 11 Tf 60 732 Td () Tj ET
+BT /F1 11 Tf 60 713 Td (Topic 1: Split parsing service into stateless workers) Tj ET
+BT /F1 11 Tf 60 694 Td (  - Redis queue, 3 automatic retries, 15 min timeout) Tj ET
+BT /F1 11 Tf 60 675 Td (  - Decision: approved, gray release before 09-15 \(Wang)) Tj ET
+BT /F1 11 Tf 60 656 Td () Tj ET
+BT /F1 11 Tf 60 637 Td (Topic 2: Chunking strategy for long documents) Tj ET
+BT /F1 11 Tf 60 618 Td (  - 512 tok: recall 91.2% / 1024 tok: 93.8% / 2048 tok: 92.1%) Tj ET
+BT /F1 11 Tf 60 599 Td (  - Decision: 1024 tokens with 15% overlap \(Chen)) Tj ET
+BT /F1 11 Tf 60 580 Td () Tj ET
+BT /F1 11 Tf 60 561 Td (This file is a generated sample for demonstration only.) Tj ET
+0.31 0.42 0.99 RG 2 w 60 542 m 535 542 l S
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1297
+%%EOF

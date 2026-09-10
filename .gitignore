@@ -1,0 +1,29 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# ---- Node / 前端构建 ----
+node_modules/
+webui/dist/
+webui/.step*-tmp/
+*.local
+
+# ---- 运行时数据：SQLite（含 API 密钥）、生成产物、导出文件 ----
+backend/data/
+
+# ---- 日志与调试产物 ----
+*.log
+backend/exp_*.json
+
+# ---- 环境变量 / IDE ----
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

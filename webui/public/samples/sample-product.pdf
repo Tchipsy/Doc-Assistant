@@ -1,0 +1,49 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1176 >>
+stream
+BT /F1 18 Tf 60 800 Td (Yunshu Document Assistant - Product Introduction) Tj ET
+BT /F1 11 Tf 60 770 Td (Version 2.4  |  Updated 2026-08-20  \(Demo PDF for UI preview)) Tj ET
+BT /F1 11 Tf 60 751 Td () Tj ET
+BT /F1 11 Tf 60 732 Td (1. Overview) Tj ET
+BT /F1 11 Tf 60 713 Td (Yunshu Document Assistant is an intelligent document tool for) Tj ET
+BT /F1 11 Tf 60 694 Td (importing, parsing and organizing PDF / Markdown knowledge.) Tj ET
+BT /F1 11 Tf 60 675 Td () Tj ET
+BT /F1 11 Tf 60 656 Td (2. Feature Matrix) Tj ET
+BT /F1 11 Tf 60 637 Td (- Knowledge base management: create / rename / delete) Tj ET
+BT /F1 11 Tf 60 618 Td (- Document parsing: PaddleOCR-VL and MinerU engines) Tj ET
+BT /F1 11 Tf 60 599 Td (- Content generation: LLM-organized Markdown output) Tj ET
+BT /F1 11 Tf 60 580 Td (- Knowledge QA: retrieval-augmented chat with @kb) Tj ET
+BT /F1 11 Tf 60 561 Td () Tj ET
+BT /F1 11 Tf 60 542 Td (3. Deployment) Tj ET
+BT /F1 11 Tf 60 523 Td (Cloud SaaS or on-premise \(4C8G minimum, CUDA GPU optional).) Tj ET
+BT /F1 11 Tf 60 504 Td () Tj ET
+BT /F1 11 Tf 60 485 Td (This file is a generated sample for demonstration only.) Tj ET
+0.31 0.42 0.99 RG 2 w 60 466 m 535 466 l S
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1539
+%%EOF

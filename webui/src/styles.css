@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f3f5f9;
+  --panel: #ffffff;
+  --panel-2: #f8f9fb;
+  --border: #e5e8ef;
+  --border-strong: #d8dce6;
+  --text-1: #1f2329;
+  --text-2: #4e5561;
+  --text-3: #9297a3;
+  --primary: #4f6bfe;
+  --primary-hover: #3d59e8;
+  --primary-soft: #eef1ff;
+  --primary-soft-border: #ccd6ff;
+  --hover: #f0f2f6;
+  --active-soft: #e8ecfd;
+  --danger: #e5484d;
+  --danger-soft: #fdebec;
+  --ok: #30a46c;
+  --warn: #f5a623;
+  --shadow-pop: 0 8px 28px rgba(15, 23, 42, 0.14);
+  --code-bg: #f4f6fa;
+  --scroll-thumb: #d3d7e0;
+}
+
+.dark {
+  --bg: #17181c;
+  --panel: #1f2127;
+  --panel-2: #24262d;
+  --border: #31343d;
+  --border-strong: #3d414c;
+  --text-1: #e8eaf0;
+  --text-2: #b4b9c5;
+  --text-3: #7d828e;
+  --primary: #6b84ff;
+  --primary-hover: #5570f2;
+  --primary-soft: #262c45;
+  --primary-soft-border: #3a4370;
+  --hover: #2a2d35;
+  --active-soft: #2b3350;
+  --danger: #ff6b6e;
+  --danger-soft: #3a2427;
+  --ok: #46c08a;
+  --warn: #f5b04d;
+  --shadow-pop: 0 8px 28px rgba(0, 0, 0, 0.5);
+  --code-bg: #262932;
+  --scroll-thumb: #3c404b;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  overflow: hidden;   /* 应用为全高布局：滚动只发生在各面板内部，杜绝整页滚动 */
+  font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 通用组件类 ---------- */
+.panel { background: var(--panel); }
+.panel-2 { background: var(--panel-2); }
+.border-line { border-color: var(--border); }
+.t1 { color: var(--text-1); }
+.t2 { color: var(--text-2); }
+.t3 { color: var(--text-3); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border-radius: 8px; border: 1px solid var(--border);
+  background: var(--panel); color: var(--text-1);
+  padding: 6px 12px; font-size: 13px; cursor: pointer; user-select: none;
+  transition: background .12s, border-color .12s, color .12s;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--hover); }
+.btn:active { transform: translateY(0.5px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-primary {
+  background: var(--primary); border-color: var(--primary); color: #fff;
+}
+.btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+.btn-soft {
+  background: var(--primary-soft); border-color: var(--primary-soft-border); color: var(--primary);
+}
+.btn-ghost { border-color: transparent; background: transparent; color: var(--text-2); }
+.btn-ghost:hover { background: var(--hover); color: var(--text-1); }
+.btn-danger { color: var(--danger); }
+.btn-danger:hover { background: var(--danger-soft); }
+.btn-sm { padding: 4px 9px; font-size: 12.5px; border-radius: 7px; }
+.btn-icon { padding: 6px; border-radius: 7px; }
+
+.input, .textarea, .select {
+  width: 100%; box-sizing: border-box;
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text-1);
+  padding: 7px 10px; font-size: 13px; outline: none;
+  transition: border-color .12s, background .12s;
+  font-family: inherit;
+}
+.input:focus, .textarea:focus, .select:focus {
+  border-color: var(--primary); background: var(--panel);
+}
+.input::placeholder, .textarea::placeholder { color: var(--text-3); }
+.textarea { resize: vertical; line-height: 1.6; }
+.select {
+  appearance: none; cursor: pointer; padding-right: 26px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 9px center;
+}
+.select option { background: var(--panel); color: var(--text-1); }
+
+.label { font-size: 12.5px; color: var(--text-2); font-weight: 500; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11.5px; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--text-2); background: var(--panel-2);
+  white-space: nowrap;
+}
+.badge-primary { color: var(--primary); background: var(--primary-soft); border-color: var(--primary-soft-border); }
+.badge-ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent); border-color: color-mix(in srgb, var(--ok) 30%, transparent); }
+.badge-warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, transparent); border-color: color-mix(in srgb, var(--warn) 32%, transparent); }
+.badge-danger { color: var(--danger); background: var(--danger-soft); border-color: color-mix(in srgb, var(--danger) 30%, transparent); }
+
+.menu {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; box-shadow: var(--shadow-pop);
+  padding: 5px; min-width: 176px; z-index: 1000;
+}
+.menu-item {
+  display: flex; align-items: center; gap: 9px; width: 100%;
+  padding: 7px 10px; border-radius: 7px; font-size: 13px;
+  color: var(--text-1); cursor: pointer; border: none; background: none; text-align: left;
+}
+.menu-item:hover { background: var(--hover); }
+.menu-item.danger { color: var(--danger); }
+.menu-item.danger:hover { background: var(--danger-soft); }
+.menu-item:disabled { opacity: .45; cursor: not-allowed; }
+.menu-item:disabled:hover { background: none; }
+.menu-sep { height: 1px; background: var(--border); margin: 4px 6px; }
+
+.card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.scroll-thin { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) transparent; }
+.scroll-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 8px; }
+.scroll-thin::-webkit-scrollbar-track { background: transparent; }
+
+.row-selected { background: var(--active-soft) !important; }
+
+/* ---------- 标签页（9.5 步骤8） ---------- */
+.tab {
+  display: flex; align-items: center; gap: 5px;
+  min-width: 0; max-width: 200px; padding: 5px 8px 5px 11px;
+  border: 1px solid transparent; border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  font-size: 12.5px; cursor: pointer; user-select: none;
+  transition: background .12s ease, color .12s ease;
+}
+.tab:hover { background: var(--hover); }
+.tab-active {
+  background: var(--panel); border-color: var(--border);
+  color: var(--text-1); font-weight: 500;
+  position: relative; top: 1px;   /* 盖住标签条底边线，形成"接入"观感 */
+}
+.tab-close {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 17px; height: 17px; flex-shrink: 0;
+  border: none; background: transparent; border-radius: 5px;
+  color: var(--text-3); cursor: pointer; padding: 0;
+  opacity: 0; transition: opacity .12s ease, background .12s ease, color .12s ease;
+}
+.tab:hover .tab-close, .tab-active .tab-close { opacity: 1; }
+.tab-close:hover { background: var(--border); color: var(--text-1); }
+
+/* ---------- Markdown 渲染 ---------- */
+.md { font-size: 14px; line-height: 1.75; color: var(--text-1); word-break: break-word; }
+.md h1, .md h2, .md h3, .md h4 { font-weight: 600; line-height: 1.4; margin: 1.1em 0 .5em; }
+.md h1 { font-size: 1.5em; } .md h2 { font-size: 1.28em; } .md h3 { font-size: 1.12em; } .md h4 { font-size: 1em; }
+.md h1:first-child, .md h2:first-child, .md h3:first-child { margin-top: 0; }
+.md p { margin: .55em 0; }
+.md ul, .md ol { margin: .5em 0; padding-left: 1.5em; }
+.md ul { list-style: disc; } .md ol { list-style: decimal; }
+.md li { margin: .25em 0; }
+.md blockquote {
+  margin: .7em 0; padding: .4em 1em; color: var(--text-2);
+  border-left: 3px solid var(--primary-soft-border); background: var(--panel-2); border-radius: 0 8px 8px 0;
+}
+.md code {
+  font-family: "Cascadia Code", Consolas, Menlo, monospace; font-size: .88em;
+  background: var(--code-bg); border: 1px solid var(--border);
+  padding: .1em .35em; border-radius: 5px;
+}
+.md pre {
+  background: var(--code-bg); border: 1px solid var(--border);
+  padding: 12px 14px; border-radius: 10px; overflow-x: auto; margin: .7em 0;
+}
+.md pre code { background: none; border: none; padding: 0; font-size: 12.5px; line-height: 1.6; }
+.md table { border-collapse: collapse; margin: .7em 0; width: 100%; font-size: 13px; }
+.md th, .md td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; }
+.md th { background: var(--panel-2); font-weight: 600; }
+.md hr { border: none; border-top: 1px solid var(--border); margin: 1em 0; }
+.md a { color: var(--primary); text-decoration: none; }
+.md a:hover { text-decoration: underline; }
+/* debug2 #5：Tailwind preflight 置 img{display:block}，block 不受父级 text-align
+ * 控制 → 位置标记（<div style="text-align:center"> / <center>）包图片时预览不居中
+ * （组装/导出/PDF 路径均正确，仅预览渲染层）。改回 inline-block 恢复随父级
+ * text-align 居中；另对居中容器内的 img 兜底 block+auto 边距（两形态选择器都写，
+ * 防其他规则强制 block）。仅预览层——导出/PDF 路径自建样式不受影响。 */
+.md img { display: inline-block; vertical-align: top; max-width: 100%; height: auto; border-radius: 4px; margin: .35em 0; }
+.md [style*="text-align:center"] img, .md [style*="text-align: center"] img,
+.md center img { display: block; margin-left: auto; margin-right: auto; }
+.md div { max-width: 100%; }
+.md sup.cite { color: var(--primary); cursor: pointer; font-weight: 600; padding: 0 1px; position: relative; }
+/* 行内 ① 悬停浮卡（[[c:N]] 协议，步骤3；LiveView 与助手页共用） */
+.md sup.cite .cite-card { display: none; }
+.md sup.cite:hover .cite-card {
+  display: block; position: absolute; bottom: calc(100% + 7px); left: 50%;
+  transform: translateX(-50%); z-index: 70; width: 300px; max-height: 200px; overflow: auto;
+  background: var(--card, #fff); border: 1px solid var(--border); border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.14); padding: 8px 10px; font-weight: 400;
+  color: var(--fg); white-space: normal; text-align: left; cursor: default;
+}
+.md sup.cite .cite-card .cc-head { display: block; font-size: 11px; font-weight: 600; color: var(--fg-2, #555); margin-bottom: 3px; }
+.md sup.cite .cite-card .cc-url { display: block; font-size: 10px; color: var(--text-3, #999); margin-bottom: 3px; word-break: break-all; }
+.md sup.cite .cite-card .cc-text { display: block; font-size: 11.5px; line-height: 1.55; }
+/* debug2 #13：行内 ① 贴顶翻转——attachCiteFlip 委托在 rect.top<260 时给 sup 加
+ * .cite-below，浮卡翻到下方（LiveView 与助手页两个挂载点共用同一工具函数） */
+.md sup.cite.cite-below .cite-card { bottom: auto; top: calc(100% + 7px); }
+.md input[type="checkbox"] { margin-right: .4em; vertical-align: -1px; }
+.md .katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+
+/* 顶栏文档名行内改名（PreviewMain 双击进入） */
+.doc-title-input {
+  font-size: 13px; font-weight: 500; color: var(--text-1);
+  background: var(--panel-2); border: 1px solid var(--primary);
+  border-radius: 7px; padding: 3px 8px; min-width: 200px; max-width: 340px;
+  outline: none; font-family: inherit;
+}
+.doc-title-input:focus { background: var(--panel); }
+
+/* ---------- 动画 ---------- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { opacity: 0; transform: scale(.97) translateY(-3px); } to { opacity: 1; transform: none; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.anim-fade { animation: fadeIn .15s ease; }
+.anim-pop { animation: popIn .13s ease; }
+.anim-slide { animation: slideUp .18s ease; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 1s linear infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.cursor-blink { display:inline-block; width: 7px; height: 15px; background: var(--primary); vertical-align: -2px; margin-left: 2px; animation: blink 1s step-end infinite; border-radius: 1px; }
+
+/* 进度条 */
+.progress-track { height: 5px; border-radius: 99px; background: var(--border); overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 99px; background: var(--primary); transition: width .25s ease; }
+
+/* ---------- 实时渲染（liveview） ---------- */
+.liveview { line-height: 1.7; }
+.liveview-section { margin: 0 0 6px; }
+.md-heading-row { display: flex; align-items: baseline; gap: 8px; margin: 14px 0 6px; }
+.md-heading-num { font-family: ui-monospace, Consolas, monospace; font-size: 12px; color: var(--primary); opacity: .85; }
+.md-h { font-weight: 600; }
+.md-h2 { font-size: 17px; color: var(--fg); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.md-h3 { font-size: 15px; color: var(--primary); }
+.md-h4 { font-size: 13.5px; color: var(--fg-2, #555); }
+.liveview-box { border: 1px solid; border-left-width: 3px; border-radius: 8px; padding: 8px 12px; margin: 8px 0; }
+.liveview-box-title {
+  display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600;
+  width: 100%; background: none; border: none; padding: 0; margin-bottom: 4px;
+  text-align: left; cursor: pointer; user-select: none; font: inherit;
+  font-size: 12px; font-weight: 600;
+}
+.liveview-box.folded { padding: 5px 12px; }
+.liveview-box.folded .liveview-box-title { margin-bottom: 0; }
+.liveview-box-body { font-size: 13px; }
+.liveview-box-body .md, .liveview-section .md { font-size: 13.5px; }
+.liveview-toc .toc-entry { cursor: pointer; font-size: 12.5px; padding: 2px 6px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.liveview-toc .toc-entry:hover { background: var(--hover); }
+.liveview-toc .toc-num { font-family: ui-monospace, Consolas, monospace; color: var(--primary); margin-right: 6px; font-size: 11.5px; }
+.liveview-toc .toc-title { color: var(--fg-2, #555); }
+.jump-highlight { animation: jumpFlash 2.4s ease; }
+@keyframes jumpFlash {
+  0%, 60% { background: color-mix(in srgb, var(--primary) 16%, transparent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent); }
+  100% { background: transparent; box-shadow: none; }
+}
+
+/* 页码锚点（9.5 步骤6）：后端页标记 <!-- page:N --> 转换的零高标记，
+ * 不可见不占高，仅作双窗口同步滚动的查询锚点（data-page=1 基页码） */
+.page-anchor { display: block; height: 0; visibility: hidden; }
+
+/* 文档标题节点（debug2 #4 前端半边：type='title' → h1.doc-title，置于目录卡之前） */
+.liveview .doc-title { font-size: 20px; font-weight: 650; line-height: 1.35; margin: 2px 0 12px; }
+
+/* ---------- 助手引用 ① ---------- */
+/* debug2 #13：悬停浮卡统一走 HoverPreview（portal+fixed，不受 overflow-hidden 裁剪、
+ * 贴顶自动翻下方）。旧 .citation-chip/.citation-preview（头部气泡行已删、FragmentRow
+ * 改用 HoverPreview）随之移除。 */
+.hover-preview {
+  max-height: 240px; overflow: auto;
+  background: var(--card, #fff); border: 1px solid var(--border); border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.14); padding: 10px 12px; color: var(--fg);
+}
