@@ -44,11 +44,9 @@ backend/
 ├── app/            # 路由、服务层、liveview 流式渲染、RAG
 ├── engine/         # 算法层：LLM 流式、pass1/pass2、OCR、导出、提示词装配
 ├── prompts/        # 内置提示词模板（首次启动播种进 SQLite）
-├── tests/
 └── run_server.py
 webui/
 ├── src/            # React SPA：live 事件折叠器、LiveView、页面与组件
-├── scripts/        # 构建 / 示例生成脚本
 └── public/         # 程序生成的示例 PDF
 ```
 
