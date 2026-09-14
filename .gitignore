@@ -15,6 +15,9 @@ webui/.step*-tmp/
 # ---- 运行时数据：SQLite（含 API 密钥）、生成产物、导出文件 ----
 backend/data/
 
+# ---- 评测（不随公开仓库发布） ----
+backend/eval/
+
 # ---- 日志与调试产物 ----
 *.log
 backend/exp_*.json
